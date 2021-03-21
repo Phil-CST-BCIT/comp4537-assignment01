@@ -2,6 +2,8 @@ const helpers = require('./lib/helpers');
 const express = require('express');
 const mysql = require('mysql2')
 const app = express();
+const PORT = process.env.PORT || 5000
+
 
 const pool = mysql.createPool({
     host: helpers.db_host,
@@ -17,7 +19,9 @@ app.use(express.static('public'));
 
 app.use(express.json())
 
-app.get('/', (req, res) => { res.end(); });
+app.get('/', (req, res) => { 
+    res.end(); 
+});
 
 app.get('/a1/api/lists', (req, res) => {
 
@@ -182,4 +186,4 @@ app.post('/a1/api/questions', (req, res) => {
     res.send(reply)
 }); // POST requests for creating quiz questions
 
-app.listen(8000, () => {console.log("listening on port 8000")});
+app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
