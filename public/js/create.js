@@ -216,19 +216,24 @@ function getMCS() {
 
     let length = localStorage.length;
 
-    for(let i = 1; i <= length; ++i) {
+    if(length > 0) {
+
+        for(let i = 1; i <= length; ++i) {
         
-        let key = i.toString();
+            let key = i.toString();
+    
+            let json = localStorage.getItem(key)
+    
+            let obj = JSON.parse(json)
+    
+            array.push(obj);
+    
+        } 
+    
+        return JSON.stringify(array);
+    }
 
-        let json = localStorage.getItem(key)
-
-        let obj = JSON.parse(json)
-
-        array.push(obj);
-
-    } 
-
-    return JSON.stringify(array);
+ 
 }
 
 /***************************************************************
@@ -254,29 +259,37 @@ function submit() {
     // get all the items in local storage
     // create xhr object
     // POST method
-
-    const METHOD = "POST";
-    const HOST = "https://nameless-dusk-71668.herokuapp.com";
-    const PATH = "/a1/api/questions";
-    let endpoint = HOST+PATH;
     let body = getMCS();
 
-    console.log(body)
+    if(!body) {
+
+        alert("Empty quiz");
     
-    let xhr = new XMLHttpRequest();
+    } else {
 
-    xhr.open(METHOD, endpoint);
+        const METHOD = "POST";
+        const HOST = "https://nameless-dusk-71668.herokuapp.com";
+        const PATH = "/a1/api/questions";
+        let endpoint = HOST+PATH;
 
-    xhr.setRequestHeader('Content-Type', 'application/json');
+         // console.log(body)
+    
+        let xhr = new XMLHttpRequest();
 
-    xhr.send(body);
+        xhr.open(METHOD, endpoint);
 
-    xhr.onload = function() {
-        if(xhr.status != 200) {
-            console.log(`Error ${xhr.status}: ${xhr.statusText}`);
-        } else {
-            console.log(xhr.response);
-            window.location.reload();
+        xhr.setRequestHeader('Content-Type', 'application/json');
+
+        xhr.send(body);
+
+        xhr.onload = function() {
+            if(xhr.status != 200) {
+                console.log(`Error ${xhr.status}: ${xhr.statusText}`);
+            } else {
+                console.log(xhr.response);
+                window.location.reload();
+            }
         }
     }
+   
 }
