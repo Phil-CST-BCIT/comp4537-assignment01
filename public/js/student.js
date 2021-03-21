@@ -15,7 +15,7 @@ takeBtn.onclick = getQuizList;
 function getQuizList() {
 
     const METHOD = "GET";
-    const HOST = "http://localhost:8000";
+    const HOST = "http://nameless-dusk-71668.herokuapp.com";
     const PATH = "/a1/api/lists";
     let endpoint = HOST+PATH;
     let numOfQuizzes = 0;
@@ -135,7 +135,7 @@ function displayQuiz(quiz) {
 function getQuiz(id) {
 
     const METHOD = "GET";
-    const HOST = "http://localhost:8000";
+    const HOST = "http://nameless-dusk-71668.herokuapp.com";
     const PATH = `/a1/api/lists/${id}`;
     let endpoint = HOST+PATH;
    

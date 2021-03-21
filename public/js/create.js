@@ -256,7 +256,7 @@ function submit() {
     // POST method
 
     const METHOD = "POST";
-    const HOST = "http://localhost:8000";
+    const HOST = "http://nameless-dusk-71668.herokuapp.com";
     const PATH = "/a1/api/questions";
     let endpoint = HOST+PATH;
     let body = getMCS();
