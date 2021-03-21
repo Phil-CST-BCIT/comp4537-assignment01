@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>create</title>
+    <link href="../css/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <section id="create-header">
+      <h3>Buttons:</h3>
+      <div>
+        <button onclick="window.location.href='./admin_list.html'">BACK</button>
+      </div>
+
+      <div>
+        <button id="submit">SUBMIT</button>
+      </div>
+
+      <div id="instruction">
+        <h3>instructions:</h3>
+        <p>Click add button for adding a question to the database.</p>
+        <p>Click submit button to finalize the process of creating a quiz.</p>
+        <p>Note: the number of choices 2 or 3 or 4 </p>
+        <p>Note: Leaving the page without SUBMIT will discard all created questions </p>
+      </div>
+
+    </section>
+
+    <section id="create-main">
+      <div id="item">
+        <div>
+          <h3>Question: </h3>
+        </div>
+      </div>
+      <div>
+        <textarea id="question" autofocus="autofocus" rows="10" cols="50"></textarea>
+        <div class="options">
+          <div>
+            <input id="a" class="mc" type="radio" name="alt" value="a"/>
+            <input id="ans-a" type="text"/>
+          </div>
+          <div>
+            <input id="b" class="mc" type="radio" name="alt" value="b"/>
+            <input id="ans-b" type="text"/>
+          </div>
+          <div>
+            <input id="c" class="mc" type="radio" name="alt" value="c"/>
+            <input id="ans-c" type="text" />
+          </div>
+          <div>
+            <input id="d" class="mc" type="radio" name="alt" value="d"/>
+            <input id="ans-d" type="text" />  
+          </div>
+        </div>
+        <div>
+          <button id="add">ADD</button>
+        </div>
+      </div>
+    </section>
+    <script src="../js/create.js"></script>
+  </body>
+</html>
